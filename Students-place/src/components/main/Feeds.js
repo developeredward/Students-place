@@ -4,7 +4,7 @@ import * as solid from "@fortawesome/free-solid-svg-icons";
 import * as regular from "@fortawesome/free-regular-svg-icons";
 import send from "../../static/img/icons/send.png";
 
-const Feeds = ({ data }) => {
+const Feeds = ({ data, user }) => {
   return (
     <div className="feeds-container">
       <div className="feed">
@@ -48,7 +48,7 @@ const Feeds = ({ data }) => {
               </button>
               <button className="action reply">
                 <FontAwesomeIcon icon={regular.faComment} size="lg" />
-                <span id="reply-count count">{post.commentCount}</span>
+                <span id="reply-count count">{post.comments.length}</span>
               </button>
               <button className="action retweat">
                 <FontAwesomeIcon icon={solid.faRetweet} size="lg" />
@@ -58,10 +58,21 @@ const Feeds = ({ data }) => {
                 <FontAwesomeIcon icon={solid.faShare} size="lg" />
               </button>
             </div>
-            <div className="commenting-box">
+            <div className="commenting-input-box">
               <div className="commenting">
                 <div className="profile-pic">
-                  <img src={post.img} alt="" />
+                  {user.profilePicture ? (
+                    <img
+                      src={user.profilePicture}
+                      className="profile-img"
+                      alt=""
+                    />
+                  ) : (
+                    <FontAwesomeIcon
+                      icon={solid.faUserCircle}
+                      className="profile-img"
+                    />
+                  )}
                 </div>
                 <div className="comment-input">
                   <div className="text">
@@ -85,12 +96,58 @@ const Feeds = ({ data }) => {
                         icon={solid.faSmile}
                       />
                     </button>
-                    <button type="submit">
-                      <img src={send} alt="" />
+                    <button className="submit-comment" type="submit">
+                      <FontAwesomeIcon icon={solid.faArrowRight} />
                     </button>
                   </div>
                 </div>
               </div>
+            </div>
+            <div className="comments-section">
+              {post.comments.map((comment) => (
+                <div className="comment">
+                  <div className="commentor-profile-pic">
+                    {comment.img ? (
+                      <img src={comment.img} className="profile-img" alt="" />
+                    ) : (
+                      <FontAwesomeIcon
+                        icon={solid.faUserCircle}
+                        className="profile-img"
+                      />
+                    )}
+                  </div>
+                  <div className="comment-contents-box">
+                    <div className="comment-contents">
+                      <div className="commentor-details">
+                        <div className="commentor-name">
+                          <h4 className="comment-fullname">
+                            {comment.fullname}
+                          </h4>
+                        </div>
+                        <div className="comment-text">
+                          <p className="comment-content-text">
+                            {comment.comment}
+                          </p>
+                        </div>
+                      </div>
+                      <div className="comment-vote">
+                        <div className="vote">
+                          <FontAwesomeIcon
+                            icon={regular.faHeart}
+                            style={{ fontSize: "25px" }}
+                          />
+                          <span className="votes-count">30 votes</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="comment-actions">
+                      <span className="comment-action reply">
+                        <FontAwesomeIcon icon={solid.faReply} /> reply
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         ))}

@@ -14,7 +14,6 @@
       flex-flow: column;
       padding: 40px 40px;
       background: #646464;
-      cursor: pointer;
       background: linear-gradient(
         to right bottom,
         rgba(255, 255, 255, 0.151),
@@ -30,6 +29,7 @@
         justify-content: space-between;
         align-items: center;
         width: 100%;
+        cursor: pointer;
         .user {
           display: flex;
           justify-content: space-between;
@@ -61,11 +61,11 @@
           .profile-pic {
             width: 70px;
             height: 70px;
-            border-radius: 100%;
             img {
               width: 100%;
               height: 100%;
-              object-fit: contain;
+              border-radius: 100%;
+              object-fit: cover;
             }
           }
         }
@@ -75,6 +75,11 @@
             font-size: 15px;
           }
         }
+      }
+      .post-content {
+        cursor: pointer;
+        padding-left: 70px;
+        padding-right: 35px;
       }
       .post-actions {
         position: relative;
@@ -99,7 +104,7 @@
           font-size: 12px;
         }
       }
-      .commenting-box {
+      .commenting-input-box {
         display: flex;
         justify-content: space-around;
         align-items: center;
@@ -114,10 +119,11 @@
           .profile-pic {
             width: 40px;
             height: 40px;
-            img {
+            .profile-img {
               width: 100%;
               height: 100%;
-              object-fit: contain;
+              border-radius: 100%;
+              object-fit: cover;
             }
           }
           .comment-input {
@@ -150,13 +156,14 @@
 
             .action-btns {
               display: flex;
-              justify-content: space-around;
+              justify-content: space-between;
               align-items: center;
               width: 100%;
               flex: 0.2;
               button {
                 background: transparent;
                 border: none;
+                cursor: pointer;
                 .icon {
                   font-size: 20px;
                 }
@@ -166,6 +173,101 @@
                 .emoji {
                   color: #fae636;
                 }
+              }
+              .submit-comment {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background: #073350;
+                width: 35px;
+                height: 35px;
+                border-radius: 100%;
+                text-align: center;
+              }
+            }
+          }
+        }
+      }
+      .comments-section {
+        display: flex;
+        justify-content: space-around;
+        align-self: center;
+        flex-direction: column;
+        flex-flow: column;
+        width: 100%;
+        padding-top: 30px;
+        gap: 10px;
+        .comment {
+          display: flex;
+          justify-content: left;
+          align-self: center;
+          width: 100%;
+          gap: 10px;
+          .commentor-profile-pic {
+            width: 40px;
+            height: 40px;
+            .profile-img {
+              width: 100%;
+              height: 100%;
+              border-radius: 100%;
+              object-fit: cover;
+            }
+          }
+          .comment-contents-box {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            flex-flow: column;
+            flex-direction: column;
+            min-height: 10vh;
+            .comment-contents {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              gap: 20px;
+              .comment-vote {
+                .vote {
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  gap: 5px;
+                  .votes-count {
+                    font-size: 12px;
+                    background: #07500d;
+                  }
+                }
+              }
+            }
+            .commentor-details {
+              display: flex;
+              justify-content: center;
+              align-items: flex-start;
+              flex-flow: column;
+              flex-direction: column;
+              min-height: 7vh;
+              padding: 3px 10px;
+              border-radius: 10px;
+              background: #363636;
+              .commentor-name {
+                .comment-fullname {
+                  font-size: 12px;
+                }
+              }
+              .comment-text {
+                .comment-content-text {
+                  font-size: 14px;
+                }
+              }
+            }
+            .comment-actions {
+              display: flex;
+              justify-content: space-evenly;
+              align-items: center;
+              .comment-action {
+                background: transparent;
+                border: none;
+                cursor: pointer;
+                color: #dbdbdb;
               }
             }
           }

@@ -37,9 +37,17 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rest_framework',
-    'newsfeeds',
+    'django.contrib.sites',
+    'accounts',
     'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'rest_auth',
+    'rest_framework',
+    'rest_framework.authtoken',
+    'tinymce',
+    'newsfeeds',
+    'Library',
 ]
 
 MIDDLEWARE = [
@@ -125,4 +133,25 @@ STATIC_URL = '/static/'
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
+
+SITE_ID = 1
+
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+CORS_ORIGIN_ALLOW_ALL = True
+
+ACCOUNT_EMAIL_VERIFICATION = 'none'
+ACCOUNT_AUTHENTICATION_METHOD = "username"
+ACCOUNT_EMAIL_REQUIRED = False
+
+
+AUTH_USER_MODEL = 'accounts.User'
+
+
+REST_AUTH_REGISTER_SERIALIZERS = {
+    'REGISTER_SERIALIZER': 'accounts.serializers.UserRegistrationSerializer'
+}
+REST_AUTH_SERIALIZERS = {
+    'USER_DETAILS_SERIALIZER': 'accounts.serializers.UserDetailSerializer'
+}
