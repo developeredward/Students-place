@@ -34,7 +34,6 @@ export class main extends Component {
           this.setState({
             data: res.data,
           });
-          console.log(this.state.data);
           // setData(res.data);
         })
         .catch((err) => {

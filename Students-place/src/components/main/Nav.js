@@ -50,6 +50,7 @@ const Nav = (props) => {
                     <img src={props.userImage} className="profile-img" alt="" />
                   </div>
                   <div className="auth-user-nav-actions">
+                    <div className="linker"></div>
                     <div className="profile-img">
                       <img src={props.userImage} alt="" className="img" />
                     </div>

@@ -1,5 +1,4 @@
 from rest_framework.generics import ListAPIView, CreateAPIView, GenericAPIView, ListCreateAPIView, RetrieveUpdateDestroyAPIView, RetrieveAPIView
-
 from django.contrib.auth.models import User
 from newsfeeds.models import Post, Comment
 from .serializers import PostSerializer, UserSerializer, PostCreateSerializer, CommentCreateSerializer
@@ -10,6 +9,9 @@ class PostListView(ListAPIView):
 class PostCreateView(CreateAPIView):
     queryset = Post.objects.all()
     serializer_class = PostCreateSerializer
+
+    def perform_create(self, serializer):
+        serializer.save()
 
 class PostDetailView(RetrieveAPIView):
     queryset = Post.objects.all()

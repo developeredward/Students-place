@@ -28,6 +28,8 @@ class Post(models.Model):
     @property
     def get_recent_comments(self):
         return self.comments.order_by('-timestamp')[:2]
+    def get_user_info(self):
+        return self.request.user
 
 
 

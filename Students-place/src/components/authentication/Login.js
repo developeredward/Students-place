@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import * as actions from "../../store/actions/auth";
-// import useForm from "./useForm";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import * as solid from "@fortawesome/free-solid-svg-icons";
+import * as regular from "@fortawesome/free-regular-svg-icons"; // import useForm from "./useForm";
 import validate from "./validateLogin";
 import "../../static/css/authentication.css";
 
@@ -60,6 +62,7 @@ const Login = (props) => {
   return (
     <div className="login-fullscreen-container">
       <div className="login-container">
+        <button className="cancel" onClick={()=>{history.go(-1)}}>x</button>
         <div className="login-content">
           <div className="text-heading">
             <h2>Sign In</h2>
@@ -82,7 +85,15 @@ const Login = (props) => {
               onChange={handleChange}
             />
             {errors.passwordError && <span>{errors.passwordError}</span>}
-            <button type="submit">Login</button>
+            <div className="login-signup-btn">
+              <button type="submit" className="login-btn">
+                Login
+              </button>
+              <p>or</p>
+              <Link to="/signup/" className="signup">
+                Signup
+              </Link>
+            </div>
           </form>
         </div>
       </div>

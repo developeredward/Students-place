@@ -1,3 +1,4 @@
+import re
 from django.db import models
 from django.db.models import fields, query
 from rest_framework import serializers
@@ -42,11 +43,17 @@ class PostSerializer(serializers.ModelSerializer):
 
 
 class PostCreateSerializer(serializers.ModelSerializer):
-    post_by = serializers.PrimaryKeyRelatedField(many=False,  queryset=User.objects.all())
+    post_by = User()
     class Meta:
         model = Post
-        fields = ('content','post_by')
+        fields = ('content','post_by',)
+        read_only_fields = ['post_by']
 
+    def validate(self, attrs):
+        attrs['post_by'] = self.context['request'].user
+        return attrs
+    # def get_post_by(self):
+    #     return self.request.user
 
 class CommentCreateSerializer(serializers.ModelSerializer):
     post = serializers.PrimaryKeyRelatedField(many=False, queryset=Post.objects.all())

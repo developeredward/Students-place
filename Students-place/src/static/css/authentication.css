@@ -35,8 +35,20 @@
   background: -webkit-gradient(linear, left top, right bottom, from(rgba(255, 255, 255, 0.151)), to(rgba(255, 255, 255, 0.062)));
   background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.151), rgba(255, 255, 255, 0.062));
   border-radius: 10px;
-  width: 50%;
+  width: 30%;
   min-height: 50vh;
+}
+
+.login-fullscreen-container .login-container .cancel {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  background: transparent;
+  font-size: 30px;
+  cursor: pointer;
+  border: none;
 }
 
 .login-fullscreen-container .login-container .login-content {
@@ -53,7 +65,7 @@
       -ms-flex-direction: column;
           flex-direction: column;
   height: 100%;
-  gap: 50px;
+  gap: 30px;
 }
 
 .login-fullscreen-container .login-container .login-content form {
@@ -63,9 +75,9 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -74,8 +86,64 @@
 
 .login-fullscreen-container .login-container .login-content form input {
   border: none;
+  height: 40px;
   background: transparent;
   border-bottom: 1px solid #c869ff;
   color: #ffffff;
+  outline: none;
+  -webkit-transition: 0.2s linear;
+  transition: 0.2s linear;
+}
+
+.login-fullscreen-container .login-container .login-content form input:focus {
+  border-bottom: 2px solid #db9dff;
+}
+
+.login-fullscreen-container .login-container .login-content form span {
+  color: #ff9f9f;
+  letter-spacing: 1px;
+  font-size: 15px;
+  font-style: italic;
+}
+
+.login-fullscreen-container .login-container .login-content form .login-signup-btn {
+  position: relative;
+  top: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 8px;
+}
+
+.login-fullscreen-container .login-container .login-content form .login-signup-btn .login-btn {
+  text-align: center;
+  background: #4a3dff;
+  color: #ffffff;
+  width: 100px;
+  height: 40px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.login-fullscreen-container .login-container .login-content form .login-signup-btn p {
+  font-style: italic;
+  color: #b3b3b3;
+}
+
+.login-fullscreen-container .login-container .login-content form .login-signup-btn .signup {
+  text-decoration: none;
+  color: #7269ec;
+  font-size: 15px;
 }
 /*# sourceMappingURL=authentication.css.map */

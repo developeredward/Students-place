@@ -1,11 +1,12 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import { connect } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import * as solid from "@fortawesome/free-solid-svg-icons";
 import * as regular from "@fortawesome/free-regular-svg-icons";
 import send from "../../static/img/icons/send.png";
 
-const Feeds = ({ feeds, isAuthenticated, userImage }) => {
+const Feeds = ({ feeds, isAuthenticated, token, userImage }) => {
   return (
     <div className="feeds-container">
       {isAuthenticated ? (
@@ -198,6 +199,7 @@ const mapStateToProps = (state) => {
   return {
     isAuthenticated: state.token !== null,
     userImage: state.picture,
+    token: state.token,
   };
 };
 export default connect(mapStateToProps)(Feeds);

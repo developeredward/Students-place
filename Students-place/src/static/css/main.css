@@ -174,21 +174,53 @@ html {
   border-radius: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+  -o-object-position: top;
+     object-position: top;
+}
+
+.header nav .authentication-links .auth-user .auth-description .auth-user-credentials-container:hover .auth-user-nav-actions {
+  height: 30vh;
+  opacity: 1;
+}
+
+.header nav .authentication-links .auth-user .auth-description .auth-user-credentials-container:hover .auth-user-nav-actions .profile-img {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.header nav .authentication-links .auth-user .auth-description .auth-user-credentials-container:hover .auth-user-nav-actions .auth-user-names {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.header nav .authentication-links .auth-user .auth-description .auth-user-credentials-container:hover .auth-user-nav-actions .actions {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .header nav .authentication-links .auth-user .auth-description .auth-user-credentials-container .auth-user-nav-actions {
   position: absolute;
-  left: -250px;
+  left: -255px;
+  top: 8vh;
+  -webkit-transition: 0.3s linear;
+  transition: 0.3s linear;
+  opacity: 0;
+  border-radius: 10px;
+  border-top-right-radius: 0;
   background: -webkit-gradient(linear, left top, right bottom, from(rgba(255, 255, 255, 0.336)), to(rgba(255, 255, 255, 0.062)));
   background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.336), rgba(255, 255, 255, 0.062));
   -webkit-backdrop-filter: blur(2rem);
           backdrop-filter: blur(2rem);
-  height: 30vh;
+  height: 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -199,7 +231,22 @@ html {
   width: 300px;
 }
 
+.header nav .authentication-links .auth-user .auth-description .auth-user-credentials-container .auth-user-nav-actions .linker {
+  position: absolute;
+  top: -15px;
+  right: 0;
+  width: 40px;
+  border-top-left-radius: 100%;
+  border-top-right-radius: 100%;
+  height: 15px;
+  background: -webkit-gradient(linear, left top, right bottom, from(rgba(255, 255, 255, 0.336)), to(rgba(255, 255, 255, 0.336)));
+  background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.336), rgba(255, 255, 255, 0.336));
+}
+
 .header nav .authentication-links .auth-user .auth-description .auth-user-credentials-container .auth-user-nav-actions .profile-img {
+  display: none;
+  position: relative;
+  top: 10px;
   width: 80px;
   height: 80px;
 }
@@ -210,12 +257,12 @@ html {
   border-radius: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+  -o-object-position: top;
+     object-position: top;
 }
 
 .header nav .authentication-links .auth-user .auth-description .auth-user-credentials-container .auth-user-nav-actions .auth-user-names {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: none;
   -ms-flex-pack: distribute;
       justify-content: space-around;
   -webkit-box-align: center;
@@ -228,18 +275,19 @@ html {
 }
 
 .header nav .authentication-links .auth-user .auth-description .auth-user-credentials-container .auth-user-nav-actions .actions {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: none;
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
-  border-top: 1px solid white;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   width: 100%;
   height: 10vh;
+  -webkit-backdrop-filter: blur(4rem);
+          backdrop-filter: blur(4rem);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 
 .header nav .authentication-links .auth-user .auth-description .auth-user-credentials-container .auth-user-nav-actions .actions .action {
@@ -256,10 +304,11 @@ html {
       -ms-flex-direction: column;
           flex-direction: column;
   text-align: center;
+  cursor: pointer;
 }
 
 .header nav .authentication-links .auth-user .auth-description .auth-user-credentials-container .auth-user-nav-actions .actions .action .action-icon {
-  background: blue;
+  background: #363636;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -272,6 +321,12 @@ html {
   width: 40px;
   height: 40px;
   text-align: center;
+}
+
+.header nav .authentication-links .auth-user .auth-description .auth-user-credentials-container .auth-user-nav-actions .actions .action #description {
+  color: #1b1b1b;
+  font-weight: lighter;
+  font-size: 12px;
 }
 
 .header nav .authentication-links .auth-user .auth-description .login-btn {
@@ -735,6 +790,8 @@ html {
   border-radius: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+  -o-object-position: top;
+     object-position: top;
 }
 
 .feeds-container .feed .post .post-user .timestamp-options .options {
@@ -874,6 +931,8 @@ html {
   border-radius: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+  -o-object-position: top;
+     object-position: top;
 }
 
 .feeds-container .feed .post .commenting-input-box .commenting .comment-input {
@@ -1025,6 +1084,8 @@ html {
   border-radius: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+  -o-object-position: top;
+     object-position: top;
 }
 
 .feeds-container .feed .post .comments-section .comment .comment-contents-box {

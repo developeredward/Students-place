@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --open --host",
-    "build": "webpack"
+    "build": "webpack --mode production"
   },
   "proxy": "http://127.0.0.1:8000/",
   "keywords": [],
