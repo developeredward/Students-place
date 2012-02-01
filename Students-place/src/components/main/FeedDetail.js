@@ -85,7 +85,6 @@ const FeedDetail = ({ feeds, isAuthenticated, token, userImage }) => {
             {feed ? (
               <>
                 <ReturnNavBar
-                  style={{ top: "0px", backGround: "red" }}
                   text={
                     feed.post_by.middle_name ? (
                       <h3>

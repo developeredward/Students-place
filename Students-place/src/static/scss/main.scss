@@ -33,7 +33,10 @@ body {
   .feeds-detail {
     position: relative;
     top: 65px;
-    margin-top: 65px;
+    margin-top: 0;
+    padding-right: 0;
+    flex: 5;
+    padding-left: 20px;
   }
   .profile-details-container {
     flex: 5;
