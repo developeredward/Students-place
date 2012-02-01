@@ -1,9 +1,10 @@
-import React, { Component, useEffect } from "react";
+import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { connect } from "react-redux";
 import Nav from "./Nav";
 import LeftNav from "./LeftNav";
 import Feeds from "./Feeds";
+import FeedDetail from "./FeedDetail";
 import RightNav from "./RightNav";
 import RecentMsg from "./RecentMsg";
 import "../../static/css/main.css";
@@ -11,21 +12,22 @@ import useFetch from "../hooks/useFetch";
 import Login from "../authentication/Login";
 import Signup from "../authentication/Signup";
 import Loading from "../Loading";
+import Profile from "./Profile";
 
 const main = (props) => {
   const { data, isLoading, error, updateFeed } = useFetch(
     props.token,
     "http://127.0.0.1:8000/api/feeds/"
   );
+
   return (
     <Router>
       <main>
         <Nav />
         <div className="body-container">
+          <LeftNav />
           <Switch>
             <Route exact path="/">
-              <LeftNav />
-
               {isLoading ? (
                 <div
                   style={{
@@ -67,6 +69,12 @@ const main = (props) => {
             </Route>
             <Route exact path="/signup/">
               <Signup />
+            </Route>
+            <Route exact path="/:username/">
+              <Profile />
+            </Route>
+            <Route exact path="/post/:id/">
+              <FeedDetail />
             </Route>
           </Switch>
         </div>

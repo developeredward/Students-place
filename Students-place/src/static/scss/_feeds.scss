@@ -53,8 +53,14 @@
                 align-items: center;
                 text-transform: capitalize;
                 color: #e6e6e6;
+                gap: 8px;
                 &:hover {
                   color: #f8f6f6;
+                }
+                .verified-badge {
+                  .badge {
+                    color: #ae6efe;
+                  }
                 }
               }
               .username {

@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { connect } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import * as solid from "@fortawesome/free-solid-svg-icons";
 import * as regular from "@fortawesome/free-regular-svg-icons";
-import send from "../../static/img/icons/send.png";
 import Loading from "../Loading";
 import CreatePost from "./CreateFeed";
 
@@ -120,9 +119,10 @@ const Feeds = ({
                               <div className="user-fullname-username">
                                 <div className="fullname">
                                   <h3>{post.post_by.get_full_name}</h3>
-                                  {post.isVerified ? (
+                                  {post.post_by.verified ? (
                                     <div className="verified-badge">
                                       <FontAwesomeIcon
+                                        className="badge"
                                         icon={regular.faCheckCircle}
                                       ></FontAwesomeIcon>
                                     </div>
@@ -135,6 +135,7 @@ const Feeds = ({
                             </div>
                           </div>
                         </Link>
+
                         <div className="timestamp-options">
                           <div className="options">
                             <div className="menu">
@@ -158,10 +159,14 @@ const Feeds = ({
                           </div>
                         </div>
                       </div>
-
-                      <div className="post-content">
-                        <p>{post.content}</p>
-                      </div>
+                      <Link
+                        to={`/post/${post.id}`}
+                        style={{ textDecoration: "none", color: "unset" }}
+                      >
+                        <div className="post-content">
+                          <p>{post.content}</p>
+                        </div>
+                      </Link>
                       <div className="post-actions">
                         <button className="action react">
                           {" "}

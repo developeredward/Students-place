@@ -18,7 +18,7 @@ class TimestampField(serializers.Field):
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ('id','username','first_name', "get_full_name", "profile_picture", 'middle_name', 'last_name')
+        fields = ('id','username','first_name', "verified", "get_full_name", "profile_picture", 'middle_name', 'last_name')
         
 class CommentSerializer(serializers.ModelSerializer):
     user = UserSerializer()

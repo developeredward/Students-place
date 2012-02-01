@@ -25,10 +25,18 @@ body {
   flex-wrap: wrap;
   width: 100%;
   .feeds-container {
-    padding-top: 100px;
+    margin-top: 100px;
     padding-right: 50px;
     padding-left: 50px;
     flex: 4;
+  }
+  .feeds-detail {
+    position: relative;
+    top: 65px;
+    margin-top: 65px;
+  }
+  .profile-details-container {
+    flex: 5;
   }
   .right-nav-links {
     flex: 1;
@@ -45,3 +53,4 @@ body {
 @import "leftnav";
 @import "rightnav";
 @import "feeds";
+@import "profile";

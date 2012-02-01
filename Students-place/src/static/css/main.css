@@ -37,12 +37,24 @@ body {
 }
 
 .body-container .feeds-container {
-  padding-top: 100px;
+  margin-top: 100px;
   padding-right: 50px;
   padding-left: 50px;
   -webkit-box-flex: 4;
       -ms-flex: 4;
           flex: 4;
+}
+
+.body-container .feeds-detail {
+  position: relative;
+  top: 65px;
+  margin-top: 65px;
+}
+
+.body-container .profile-details-container {
+  -webkit-box-flex: 5;
+      -ms-flex: 5;
+          flex: 5;
 }
 
 .body-container .right-nav-links {
@@ -949,10 +961,15 @@ body {
           align-items: center;
   text-transform: capitalize;
   color: #e6e6e6;
+  gap: 8px;
 }
 
 .feeds-container .feed .post .post-user .user .user-details .user-fullname-username .fullname:hover {
   color: #f8f6f6;
+}
+
+.feeds-container .feed .post .post-user .user .user-details .user-fullname-username .fullname .verified-badge .badge {
+  color: #ae6efe;
 }
 
 .feeds-container .feed .post .post-user .user .user-details .user-fullname-username .username {
@@ -1371,5 +1388,271 @@ body {
   border: none;
   cursor: pointer;
   color: #dbdbdb;
+}
+
+.profile-details-container {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  top: 65px;
+  width: 100%;
+}
+
+.profile-details-container .profile-details {
+  position: relative;
+  width: 100%;
+}
+
+.profile-details-container .profile-details .profile-cover {
+  width: 100%;
+  height: 30vh;
+}
+
+.profile-details-container .profile-details .profile-cover .cover-pic {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+
+.profile-details-container .profile-details .profile {
+  position: relative;
+  top: 20px;
+  padding-left: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 20px;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  width: 100%;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.profile-details-container .profile-details .profile .profile-picture {
+  position: relative;
+  top: -80px;
+  width: 150px;
+  height: 150px;
+}
+
+.profile-details-container .profile-details .profile .profile-picture .profile-pic {
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: top;
+     object-position: top;
+}
+
+.profile-details-container .profile-details .profile .profile-info {
+  width: 75%;
+}
+
+.profile-details-container .profile-details .profile .profile-info .info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+}
+
+.profile-details-container .profile-details .profile .profile-info .info .user {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 20px;
+}
+
+.profile-details-container .profile-details .profile .profile-info .info .user .name .fullname {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-column-gap: 8px;
+          column-gap: 8px;
+  text-align: center;
+}
+
+.profile-details-container .profile-details .profile .profile-info .info .user .name .fullname .user-fullname {
+  color: #e6e6e6;
+}
+
+.profile-details-container .profile-details .profile .profile-info .info .user .name .fullname .verified-badge .badge {
+  color: #ae6efe;
+}
+
+.profile-details-container .profile-details .profile .profile-info .info .user .name .username {
+  color: #8d8d8d;
+}
+
+.profile-details-container .profile-details .profile .profile-info .info .user .others .bio {
+  font-weight: lighter;
+  color: #e2e2e2;
+  max-width: 550px;
+}
+
+.profile-details-container .profile-details .profile .profile-info .info .action-btns {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 7px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.profile-details-container .profile-details .profile .profile-info .info .action-btns .message {
+  background: transparent;
+  border: 1px groove #b66cff;
+  border-radius: 100%;
+  height: 40px;
+  text-align: center;
+  width: 40px;
+  cursor: pointer;
+}
+
+.profile-details-container .profile-details .profile .profile-info .info .action-btns .following-btn {
+  border: none;
+  background: linear-gradient(40deg, #b66cff 10%, #c869ff 30%, #ae6efe 77%);
+  width: 120px;
+  height: 40px;
+  border-radius: 20px;
+}
+
+.profile-details-container .profile-details .profile .profile-info .info .action-btns .follow-btn {
+  border: 1px groove #b66cff;
+  -webkit-transition: 0.2s linear;
+  transition: 0.2s linear;
+  background: transparent;
+  width: 120px;
+  height: 40px;
+  border-radius: 20px;
+}
+
+.profile-details-container .profile-details .profile .profile-info .info .action-btns .follow-btn:hover {
+  background: #c869ff;
+  cursor: pointer;
+}
+
+.profile-details-container .profile-details .profile .profile-info .web-links {
+  padding-top: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  width: 50%;
+  gap: 100px;
+}
+
+.profile-details-container .profile-details .profile .profile-info .web-links .web-link {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 2px;
+}
+
+.profile-details-container .profile-details .user-profile-info {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 15vh;
+  background: #646464;
+  background: -webkit-gradient(linear, left top, right bottom, from(rgba(255, 255, 255, 0.151)), to(rgba(255, 255, 255, 0.062)));
+  background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.151), rgba(255, 255, 255, 0.062));
+  border-bottom-left-radius: 50px;
+  border-top-left-radius: 50px;
+  z-index: 2;
+  -webkit-backdrop-filter: blur(2rem);
+          backdrop-filter: blur(2rem);
+}
+
+.profile-details-container .profile-details .user-profile-info .info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.profile-details-container .profile-details .user-profile-info .info .count {
+  font-size: 35px;
+  font-weight: lighter;
+  font-style: oblique;
+}
+
+.profile-details-container .profile-details .user-profile-info .info .text {
+  font-size: 10px;
+}
+
+.profile-details-container .feeds {
+  width: 80%;
 }
 /*# sourceMappingURL=main.css.map */
