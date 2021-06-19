@@ -1,0 +1,47 @@
+.header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.281);
+  nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    padding: 0 50px;
+    .logo {
+      flex: 1;
+    }
+    .nav-links {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      list-style: none;
+      flex: 1;
+    }
+    .authentication-links {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      flex: 1;
+      .auth-user {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        list-style: none;
+        flex: 0;
+        .login {
+          .login-btn {
+            background: rgb(48, 113, 150);
+            border: none;
+            width: 80px;
+            height: 30px;
+            border-radius: px;
+            color: #ffffff;
+          }
+        }
+      }
+    }
+  }
+}

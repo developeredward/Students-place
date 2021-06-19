@@ -1,12 +1,19 @@
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import * as solid from "@fortawesome/free-solid-svg-icons";
+import * as regular from "@fortawesome/free-regular-svg-icons";
 
 const LeftNav = () => {
   return (
     <div className="left-nav-links">
       <div className="user-interest-details">
         <ul className="interests">
-          <li>Trending 24hrs</li>
-          <li>Favorites</li>
+          <button>
+            <FontAwesomeIcon icon={solid.faFire} /> Trending 24hrs
+          </button>
+          <button>
+            <FontAwesomeIcon icon={regular.faHeart} /> Favourites
+          </button>
         </ul>
       </div>
       <div className="blog-navigations">
@@ -15,13 +22,13 @@ const LeftNav = () => {
         </div>
         <div className="navigation">
           <ul>
-            <li>Opportunities</li>
-            <li>Technology</li>
-            <li>Students Library</li>
-            <li>Entertainment</li>
-            <li>Blog</li>
-            <li>Contact</li>
-            <li>FAQ</li>
+            <button>Opportunities</button>
+            <button>Technology</button>
+            <button>Students Library</button>
+            <button>Entertainment</button>
+            <button>Blog</button>
+            <button>Contact</button>
+            <button>FAQ</button>
           </ul>
         </div>
       </div>

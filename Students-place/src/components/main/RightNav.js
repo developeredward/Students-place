@@ -11,12 +11,12 @@ const RightNav = () => {
               <h3>Mary Jane</h3>
             </div>
             <div className="content">
-              <h3>
+              <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis
                 minus sapiente laudantium inventore qui id voluptatum
                 perferendis totam tempore aliquam. Facilis dicta facere, aut hic
                 illo perferendis omnis eveniet magni!
-              </h3>
+              </p>
             </div>
           </div>
           <div className="trend-post">
@@ -24,12 +24,12 @@ const RightNav = () => {
               <h3>Dave Cory</h3>
             </div>
             <div className="content">
-              <h3>
+              <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis
                 minus sapiente laudantium inventore qui id voluptatum
                 perferendis totam tempore aliquam. Facilis dicta facere, aut hic
                 illo perferendis omnis eveniet magni!
-              </h3>
+              </p>
             </div>
           </div>
         </div>

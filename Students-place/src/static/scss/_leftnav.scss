@@ -1,0 +1,60 @@
+.left-nav-links {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 100%;
+  min-height: 50vh;
+  ul {
+    list-style: none;
+  }
+  .user-interest-details {
+    width: 100%;
+    .interests {
+      display: flex;
+      justify-content: space-around;
+      align-items: flex-start;
+      flex-direction: column;
+      width: 80%;
+      min-height: 14vh;
+      padding-bottom: 50px;
+      button {
+        line-height: 30px;
+        width: 100%;
+        text-align: left;
+        background: transparent;
+        cursor: pointer;
+        border: none;
+      }
+    }
+  }
+  .blog-navigations {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 80%;
+    min-height: 30vh;
+    .title {
+      padding-bottom: 30px;
+    }
+    .navigation {
+      ul {
+        display: flex;
+        justify-content: space-around;
+        align-items: flex-start;
+        flex-direction: column;
+        min-width: 80%;
+        min-height: 40vh;
+        button {
+          line-height: 30px;
+          width: 100%;
+          text-align: left;
+          background: transparent;
+          cursor: pointer;
+          border: none;
+        }
+      }
+    }
+  }
+}
