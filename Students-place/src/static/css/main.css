@@ -5,6 +5,19 @@
           box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+#app {
+  background: #313131;
+  color: #ffffff;
+}
+
+#app button {
+  color: #ffffff;
+}
+
 .body-container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -14,13 +27,15 @@
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   width: 100%;
-  padding-top: 30px;
-  padding-left: 50px;
-  padding-right: 50px;
 }
 
 .body-container .feeds-container {
+  padding-top: 100px;
+  padding-right: 50px;
+  padding-left: 50px;
   -webkit-box-flex: 4;
       -ms-flex: 4;
           flex: 4;
@@ -30,26 +45,39 @@
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
+  padding-top: 100px;
+  padding-right: 50px;
 }
 
 .body-container .left-nav-links {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
+  padding-top: 100px;
+  padding-left: 50px;
 }
 
 .header {
+  position: fixed;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-pack: distribute;
       justify-content: space-around;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   width: 100%;
-  -webkit-box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.281);
-          box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.281);
+  min-height: 10vh;
+  z-index: 100;
+  background: #313131;
+  margin-bottom: 20px;
+  -webkit-box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.281);
+          box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.281);
 }
 
 .header nav {
@@ -65,22 +93,37 @@
   padding: 0 50px;
 }
 
-.header nav .logo {
+.header nav .left-nav-controller {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
 }
 
-.header nav .nav-links {
+.header nav .left-nav-controller .menu {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-pack: distribute;
       justify-content: space-around;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  list-style: none;
+  -ms-flex-item-align: center;
+      align-self: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 5vh;
+  cursor: pointer;
+  width: 30px;
+}
+
+.header nav .left-nav-controller .menu .menu-bar {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: #ffffff;
+}
+
+.header nav .logo {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
@@ -95,9 +138,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
+  gap: 50px;
 }
 
 .header nav .authentication-links .auth-user {
@@ -116,15 +157,23 @@
 }
 
 .header nav .authentication-links .auth-user .login .login-btn {
-  background: #307196;
+  background: linear-gradient(40deg, #d631ff 21%, #ffabd8 77%);
   border: none;
   width: 80px;
   height: 30px;
-  border-radius: px;
+  border-radius: 5px;
   color: #ffffff;
 }
 
+.hidden {
+  width: 3px;
+  background: red;
+}
+
 .left-nav-links {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -211,7 +260,7 @@
       -ms-flex-direction: column;
           flex-direction: column;
   min-width: 80%;
-  min-height: 40vh;
+  min-height: 65vh;
 }
 
 .left-nav-links .blog-navigations .navigation ul button {
@@ -221,5 +270,319 @@
   background: transparent;
   cursor: pointer;
   border: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.hide-left-nav {
+  position: absolute;
+  left: -1000px;
+}
+
+.feeds-container .feed {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 30px;
+  -ms-flex-flow: column;
+      flex-flow: column;
+}
+
+.feeds-container .feed .post {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-flow: column;
+      flex-flow: column;
+  padding: 40px 40px;
+  background: #646464;
+  cursor: pointer;
+  background: -webkit-gradient(linear, left top, right bottom, from(rgba(255, 255, 255, 0.151)), to(rgba(255, 255, 255, 0.062)));
+  background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.151), rgba(255, 255, 255, 0.062));
+  border-radius: 2rem;
+  z-index: 2;
+  min-height: 50vh;
+  -webkit-backdrop-filter: blur(2rem);
+          backdrop-filter: blur(2rem);
+}
+
+.feeds-container .feed .post .post-user {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+}
+
+.feeds-container .feed .post .post-user .user {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+}
+
+.feeds-container .feed .post .post-user .user .user-details {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.feeds-container .feed .post .post-user .user .user-details .user-fullname-username {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-flow: column;
+      flex-flow: column;
+}
+
+.feeds-container .feed .post .post-user .user .user-details .user-fullname-username .fullname {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-transform: capitalize;
+}
+
+.feeds-container .feed .post .post-user .user .user-details .user-fullname-username .username {
+  text-transform: lowercase;
+  color: #b6b5b5;
+}
+
+.feeds-container .feed .post .post-user .user .profile-pic {
+  width: 70px;
+  height: 70px;
+  border-radius: 100%;
+}
+
+.feeds-container .feed .post .post-user .user .profile-pic img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.feeds-container .feed .post .post-user .timestamp span {
+  color: #b6b5b5;
+  font-size: 15px;
+}
+
+.feeds-container .feed .post .post-actions {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  padding-top: 10px;
+  margin: 30px 0;
+  top: 100%;
+}
+
+.feeds-container .feed .post .post-actions .action {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100px;
+  text-align: center;
+  background: transparent;
+  cursor: pointer;
+  border: none;
+}
+
+.feeds-container .feed .post .post-actions span {
+  font-size: 12px;
+}
+
+.feeds-container .feed .post .commenting-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  background: #363636;
+  border-radius: 30px;
+}
+
+.feeds-container .feed .post .commenting-box .commenting {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+}
+
+.feeds-container .feed .post .commenting-box .commenting .profile-pic {
+  width: 40px;
+  height: 40px;
+}
+
+.feeds-container .feed .post .commenting-box .commenting .profile-pic img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.feeds-container .feed .post .commenting-box .commenting .comment-input {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+}
+
+.feeds-container .feed .post .commenting-box .commenting .comment-input .text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.feeds-container .feed .post .commenting-box .commenting .comment-input .text #comment-input {
+  resize: none;
+  -webkit-column-count: 80;
+          column-count: 80;
+  color: #ffffff;
+  outline: none;
+  padding-top: 10px;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding-left: 10px;
+  background: #363636;
+  border: none;
+}
+
+.feeds-container .feed .post .commenting-box .commenting .comment-input .action-btns {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  -webkit-box-flex: 0.2;
+      -ms-flex: 0.2;
+          flex: 0.2;
+}
+
+.feeds-container .feed .post .commenting-box .commenting .comment-input .action-btns button {
+  background: transparent;
+  border: none;
+}
+
+.feeds-container .feed .post .commenting-box .commenting .comment-input .action-btns button .icon {
+  font-size: 20px;
+}
+
+.feeds-container .feed .post .commenting-box .commenting .comment-input .action-btns button .clip {
+  color: #a0a0a0;
+}
+
+.feeds-container .feed .post .commenting-box .commenting .comment-input .action-btns button .emoji {
+  color: #fae636;
 }
 /*# sourceMappingURL=main.css.map */

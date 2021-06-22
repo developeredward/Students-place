@@ -1,0 +1,176 @@
+.feeds-container {
+  .feed {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    gap: 30px;
+    flex-flow: column;
+    .post {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-direction: column;
+      flex-flow: column;
+      padding: 40px 40px;
+      background: #646464;
+      cursor: pointer;
+      background: linear-gradient(
+        to right bottom,
+        rgba(255, 255, 255, 0.151),
+        rgba(255, 255, 255, 0.062)
+      );
+      border-radius: 2rem;
+      z-index: 2;
+      min-height: 50vh;
+      backdrop-filter: blur(2rem);
+
+      .post-user {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        .user {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          gap: 10px;
+          .user-details {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            .user-fullname-username {
+              display: flex;
+              justify-content: space-between;
+              align-items: flex-start;
+              flex-direction: column;
+              flex-flow: column;
+              .fullname {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                text-transform: capitalize;
+              }
+              .username {
+                text-transform: lowercase;
+                color: rgb(182, 181, 181);
+              }
+            }
+          }
+
+          .profile-pic {
+            width: 70px;
+            height: 70px;
+            border-radius: 100%;
+            img {
+              width: 100%;
+              height: 100%;
+              object-fit: contain;
+            }
+          }
+        }
+        .timestamp {
+          span {
+            color: rgb(182, 181, 181);
+            font-size: 15px;
+          }
+        }
+      }
+      .post-actions {
+        position: relative;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 100%;
+        padding-top: 10px;
+        margin: 30px 0;
+        top: 100%;
+        .action {
+          display: flex;
+          justify-content: space-evenly;
+          align-items: center;
+          width: 100px;
+          text-align: center;
+          background: transparent;
+          cursor: pointer;
+          border: none;
+        }
+        span {
+          font-size: 12px;
+        }
+      }
+      .commenting-box {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 100%;
+        background: #363636;
+        border-radius: 30px;
+        .commenting {
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+          width: 100%;
+          .profile-pic {
+            width: 40px;
+            height: 40px;
+            img {
+              width: 100%;
+              height: 100%;
+              object-fit: contain;
+            }
+          }
+          .comment-input {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            .text {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              width: 100%;
+              flex: 1;
+              #comment-input {
+                resize: none;
+                column-count: 80;
+                color: #ffffff;
+                outline: none;
+                padding-top: 10px;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                padding-left: 10px;
+                background: #363636;
+                border: none;
+              }
+            }
+
+            .action-btns {
+              display: flex;
+              justify-content: space-around;
+              align-items: center;
+              width: 100%;
+              flex: 0.2;
+              button {
+                background: transparent;
+                border: none;
+                .icon {
+                  font-size: 20px;
+                }
+                .clip {
+                  color: #a0a0a0;
+                }
+                .emoji {
+                  color: #fae636;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

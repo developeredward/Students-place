@@ -3,22 +3,37 @@
   margin: 0;
   box-sizing: border-box;
 }
+html {
+  scroll-behavior: smooth;
+}
+#app {
+  background: #313131;
+  color: #ffffff;
+  button {
+    color: #ffffff;
+  }
+}
 .body-container {
   display: flex;
   justify-content: space-around;
   align-items: flex-start;
+  flex-wrap: wrap;
   width: 100%;
-  padding-top: 30px;
-  padding-left: 50px;
-  padding-right: 50px;
   .feeds-container {
+    padding-top: 100px;
+    padding-right: 50px;
+    padding-left: 50px;
     flex: 4;
   }
   .right-nav-links {
     flex: 1;
+    padding-top: 100px;
+    padding-right: 50px;
   }
   .left-nav-links {
     flex: 1;
+    padding-top: 100px;
+    padding-left: 50px;
   }
 }
 @import "nav";

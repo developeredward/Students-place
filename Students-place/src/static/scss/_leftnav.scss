@@ -1,4 +1,6 @@
 .left-nav-links {
+  position: sticky;
+  top: 0;
   display: flex;
   justify-content: space-around;
   align-items: flex-start;
@@ -45,7 +47,7 @@
         align-items: flex-start;
         flex-direction: column;
         min-width: 80%;
-        min-height: 40vh;
+        min-height: 65vh;
         button {
           line-height: 30px;
           width: 100%;
@@ -53,8 +55,24 @@
           background: transparent;
           cursor: pointer;
           border: none;
+          display: flex;
+          justify-content: left;
+          align-items: center;
         }
       }
     }
   }
 }
+.hide-left-nav {
+  position: absolute;
+  left: -1000px;
+}
+
+// @keyframes hide {
+//   from {
+//     left: 0;
+//   }
+//   to {
+//     left: -1000px;
+//   }
+// }
