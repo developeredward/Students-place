@@ -19,11 +19,11 @@ class UserAdmin(BaseUserAdmin):
 
 
     list_display = ('first_name', 'middle_name', 'last_name', 'phone_number', 'username', 'admin')
-    list_filter = ('staff', 'active', 'admin')
+    list_filter = ('staff', 'active', 'admin', "author")
     fieldsets = (
         ('User Details', {'fields': ('username',  'password')}),
         ('Personal info', {'fields': ('first_name',   'middle_name', 'last_name', 'email','phone_number', 'profile_picture')}),
-        ('Permissions', {'fields': ('admin', 'staff', 'active')}),
+        ('Permissions', {'fields': ('admin', 'staff', 'active', "author")}),
     )
 
     add_fieldsets = (

@@ -4,6 +4,6 @@ from rest_framework.serializers import as_serializer_error
 from .views import PostListView, PostCreateView
 
 urlpatterns = [
-    path('', PostListView.as_view()),
-    path('create', PostCreateView.as_view())
+    path('feeds/', PostListView.as_view()),
+    path('feeds/create/', PostCreateView.as_view())
 ]

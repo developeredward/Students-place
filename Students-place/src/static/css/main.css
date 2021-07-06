@@ -46,7 +46,7 @@ html {
       -ms-flex: 1;
           flex: 1;
   padding-top: 100px;
-  padding-right: 50px;
+  padding-right: 30px;
 }
 
 .body-container .left-nav-links {
@@ -54,7 +54,7 @@ html {
       -ms-flex: 1;
           flex: 1;
   padding-top: 100px;
-  padding-left: 50px;
+  padding-left: 30px;
 }
 
 .header {
@@ -157,7 +157,7 @@ html {
 }
 
 .header nav .authentication-links .auth-user .login .login-btn {
-  background: linear-gradient(40deg, #d631ff 21%, #ffabd8 77%);
+  background: linear-gradient(40deg, #ae6efe 21%, #b66cff 55%, #c869ff 77%);
   border: none;
   width: 80px;
   height: 30px;
@@ -286,6 +286,203 @@ html {
   left: -1000px;
 }
 
+.right-nav-links {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+
+.right-nav-links .first-section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background: linear-gradient(40deg, #ae6efe 10%, #b66cff 30%, #c869ff 77%);
+  min-width: 200px;
+  border-radius: 30px;
+  min-height: 30vh;
+  gap: 30px;
+}
+
+.right-nav-links .first-section .heading {
+  text-transform: uppercase;
+  text-align: center;
+  width: 100%;
+}
+
+.right-nav-links .first-section .trend-post-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-flow: column;
+      flex-flow: column;
+  width: 100%;
+  text-align: center;
+  min-height: 10vh;
+  background: rgba(0, 0, 0, 0.253);
+}
+
+.right-nav-links .first-section .trend-post-container .trend-post {
+  cursor: pointer;
+  color: #6efefe;
+}
+
+.right-nav-links .second-section {
+  margin-top: 30px;
+  width: 100%;
+  border: 1px solid #c869ff;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.right-nav-links .second-section .blog-container .title {
+  text-transform: capitalize;
+}
+
+.right-nav-links .second-section .blog-container .blog-posts {
+  padding-top: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-flow: column;
+      flex-flow: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.right-nav-links .second-section .blog-container .blog-posts .post {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  cursor: pointer;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  min-height: 10vh;
+  gap: 10px;
+  width: 100%;
+  -webkit-transition: 0.3s linear;
+  transition: 0.3s linear;
+}
+
+.right-nav-links .second-section .blog-container .blog-posts .post:hover {
+  background: #5d5761;
+}
+
+.right-nav-links .second-section .blog-container .blog-posts .post:hover .text .post-overview p {
+  color: #ffffff;
+}
+
+.right-nav-links .second-section .blog-container .blog-posts .post .img-container {
+  width: 140px;
+  height: 70px;
+}
+
+.right-nav-links .second-section .blog-container .blog-posts .post .img-container img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.right-nav-links .second-section .blog-container .blog-posts .post .text {
+  font-size: 15px;
+  width: 60%;
+  height: 10vh;
+  overflow: hidden;
+}
+
+.right-nav-links .second-section .blog-container .blog-posts .post .text .post-overview p {
+  color: #e4e4e4;
+}
+
+.recent-messages {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  padding-right: 20px;
+}
+
+.recent-messages .message-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  height: 95%;
+}
+
+.recent-messages .message-container .messages {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-flow: column;
+      flex-flow: column;
+  gap: 10px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #858585;
+}
+
+.recent-messages .message-container .messages .profile-img-container {
+  width: 40px;
+  height: 40px;
+}
+
+.recent-messages .message-container .messages .profile-img-container img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
 .feeds-container .feed {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -411,7 +608,7 @@ html {
   height: 70px;
 }
 
-.feeds-container .feed .post .post-user .user .profile-pic img {
+.feeds-container .feed .post .post-user .user .profile-pic .img {
   width: 100%;
   height: 100%;
   border-radius: 100%;
@@ -428,6 +625,19 @@ html {
   cursor: pointer;
   padding-left: 70px;
   padding-right: 35px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  width: 600px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  word-break: break-all;
 }
 
 .feeds-container .feed .post .post-actions {

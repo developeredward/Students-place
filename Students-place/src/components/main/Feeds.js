@@ -1,24 +1,35 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import * as solid from "@fortawesome/free-solid-svg-icons";
 import * as regular from "@fortawesome/free-regular-svg-icons";
 import send from "../../static/img/icons/send.png";
 
-const Feeds = ({ data, user }) => {
+const Feeds = ({ feeds, User }) => {
   return (
     <div className="feeds-container">
       <div className="feed">
-        {data.map((post) => (
+        {feeds.map((post) => (
           <div className="post">
             <div className="post-user">
               <div className="user">
                 <div className="profile-pic">
-                  <img src={post.img} alt={post.username} />
+                  {post.post_by.profile_picture ? (
+                    <img
+                      className="img"
+                      src={post.post_by.profile_picture}
+                      alt=""
+                    />
+                  ) : (
+                    <FontAwesomeIcon
+                      className="img"
+                      icon={solid.faUserCircle}
+                    />
+                  )}
                 </div>
                 <div className="user-details">
                   <div className="user-fullname-username">
                     <div className="fullname">
-                      <h3>{post.fullname}</h3>
+                      <h3>{post.post_by.get_full_name}</h3>
                       {post.isVerified ? (
                         <div className="verified-badge">
                           <FontAwesomeIcon
@@ -28,17 +39,30 @@ const Feeds = ({ data, user }) => {
                       ) : null}
                     </div>
                     <div className="username">
-                      <span>{post.username}</span>
+                      <span>@{post.post_by.username}</span>
                     </div>
                   </div>
                 </div>
               </div>
-              <div className="timestamp">
-                <span>{post.timestamp} hours ago</span>{" "}
+              <div className="timestamp-options">
+                <div className="options">
+                  {" "}
+                  <FontAwesomeIcon icon={solid.faInfoCircle} />
+                </div>
+                <div className="timestamp">
+                  <span>
+                    {new Date(post.timestamp).toLocaleString("en-US", {
+                      weekday: "short",
+                      day: "numeric",
+                      month: "long",
+                      year: "2-digit",
+                    })}
+                  </span>
+                </div>
               </div>
             </div>
             <div className="post-content">
-              <p>{post.post}</p>
+              <p>{post.detail}</p>
             </div>
             <div className="post-actions">
               <button className="action react">
@@ -61,9 +85,9 @@ const Feeds = ({ data, user }) => {
             <div className="commenting-input-box">
               <div className="commenting">
                 <div className="profile-pic">
-                  {user.profilePicture ? (
+                  {User.profilePicture ? (
                     <img
-                      src={user.profilePicture}
+                      src={User.profilePicture}
                       className="profile-img"
                       alt=""
                     />
@@ -107,8 +131,12 @@ const Feeds = ({ data, user }) => {
               {post.comments.map((comment) => (
                 <div className="comment">
                   <div className="commentor-profile-pic">
-                    {comment.img ? (
-                      <img src={comment.img} className="profile-img" alt="" />
+                    {comment.user.profile_picture ? (
+                      <img
+                        src={comment.user.profile_picture}
+                        className="profile-img"
+                        alt=""
+                      />
                     ) : (
                       <FontAwesomeIcon
                         icon={solid.faUserCircle}
@@ -121,7 +149,7 @@ const Feeds = ({ data, user }) => {
                       <div className="commentor-details">
                         <div className="commentor-name">
                           <h4 className="comment-fullname">
-                            {comment.fullname}
+                            {comment.user.get_full_name}
                           </h4>
                         </div>
                         <div className="comment-text">

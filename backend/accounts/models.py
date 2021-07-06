@@ -63,6 +63,7 @@ class User(AbstractBaseUser):
     email = models.EmailField(null=True,  blank=True, unique=True)
     first_login = models.BooleanField(default=False)
     verified = models.BooleanField(default=False)
+    author = models.BooleanField(default=False)
     active = models.BooleanField(default=True)
     staff = models.BooleanField(default=False)
     admin = models.BooleanField(default=False)
@@ -78,7 +79,10 @@ class User(AbstractBaseUser):
         return self.username
 
     def get_full_name(self):
-        return (self.first_name + self.last_name)
+        if self.middle_name:
+            return ("{} {} {}".format(self.first_name, self.middle_name, self.last_name))
+        
+        return ("{} {}".format(self.first_name, self.last_name))
 
     def get_short_name(self):
         return self.username

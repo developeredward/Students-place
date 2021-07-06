@@ -38,7 +38,7 @@ const Nav = () => {
           <div className="auth-user">
             <div className="login">
               {" "}
-              <button className="login-btn"> Login </button>
+              <button className="login-btn"> Sign In </button>
             </div>
           </div>
         </div>

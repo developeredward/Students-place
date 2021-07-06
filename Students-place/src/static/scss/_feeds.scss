@@ -61,7 +61,7 @@
           .profile-pic {
             width: 70px;
             height: 70px;
-            img {
+            .img {
               width: 100%;
               height: 100%;
               border-radius: 100%;
@@ -80,6 +80,12 @@
         cursor: pointer;
         padding-left: 70px;
         padding-right: 35px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        width: 600px;
+        object-fit: cover;
+        word-break: break-all;
       }
       .post-actions {
         position: relative;
