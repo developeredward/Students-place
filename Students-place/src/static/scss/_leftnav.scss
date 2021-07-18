@@ -6,7 +6,7 @@
   align-items: flex-start;
   flex-direction: column;
   width: 100%;
-  min-height: 50vh;
+  height: 90vh;
   ul {
     list-style: none;
   }
@@ -17,8 +17,9 @@
       justify-content: space-around;
       align-items: flex-start;
       flex-direction: column;
+      gap: 5px;
       width: 80%;
-      min-height: 14vh;
+      height: 20vh;
       padding-bottom: 50px;
       button {
         line-height: 30px;
@@ -36,7 +37,7 @@
     align-items: flex-start;
     flex-direction: column;
     width: 80%;
-    min-height: 30vh;
+    height: 80vh;
     .title {
       padding-bottom: 30px;
     }
@@ -47,7 +48,7 @@
         align-items: flex-start;
         flex-direction: column;
         min-width: 80%;
-        min-height: 65vh;
+        height: 50vh;
         button {
           line-height: 30px;
           width: 100%;

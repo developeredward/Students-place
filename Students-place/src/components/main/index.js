@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { Component } from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { connect } from "react-redux";
 import axios from "axios";
 import Nav from "./Nav";
 import LeftNav from "./LeftNav";
@@ -6,177 +8,102 @@ import Feeds from "./Feeds";
 import RightNav from "./RightNav";
 import RecentMsg from "./RecentMsg";
 import "../../static/css/main.css";
-import user from "../../static/img/avatar.png";
-import anoda from "../../static/img/icons/anoda.jpg";
-// import FeedsList from "./containers/feedsList";
+import * as actions from "../../store/actions/auth";
 import useFetch from "../useFetch";
-const Main = () => {
-  // const data = [
-  //   {
-  //     img: user,
-  //     fullname: "Simo edwin",
-  //     username: "@developedbyed",
-  //     post: "Lorem ipsum dolor sit amet consectetur adipisicing elit repudiandae impedit voluptatem eligendi vero autem ipsa nisi perferendis dicta aliquid quaerat natus consequuntur repellat nam accusamus perspiciatis nostrum. Magnam officia quod dolor, aspernatur sunt animi eius laudantium consequatur odit ratione",
-  //     isVerified: true,
-  //     timestamp: 3,
-  //     commentCount: 30000,
-  //     retweetCount: 13872,
-  //     comments: [
-  //       {
-  //         img: anoda,
-  //         fullname: "Khalid Mujahid",
-  //         username: "@crazyprogrammer",
-  //         comment: "Leemaooooo goan sitdan",
-  //         isVerified: true,
-  //       },
-  //       {
-  //         fullname: "Somone Loop",
-  //         username: "@tester",
-  //         comment: "Wow",
-  //         isVerified: false,
-  //       },
-  //     ],
-  //     like: 84321,
-  //   },
-  //   {
-  //     img: user,
-  //     fullname: "Brad Traversy",
-  //     username: "@traversy",
-  //     post: "Lorem ipsum dolor sit amet consectetur adipisicing elit repudiandae impedit voluptatem eligendi vero autem ipsa nisi perferendis dicta aliquid quaerat natus consequuntur repellat nam accusamus perspiciatis nostrum. Magnam officia quod dolor, aspernatur sunt animi eius laudantium consequatur odit ratione",
-  //     isVerified: false,
-  //     timestamp: 45,
-  //     commentCount: 12000,
-  //     retweetCount: 19823,
-  //     comments: [],
-  //     like: 4751,
-  //   },
-  //   {
-  //     img: anoda,
-  //     fullname: "Harrison Okafor",
-  //     username: "@harnixcodes",
-  //     post: "Lorem ipsum dolor sit amet consectetur adipisicing elit repudiandae impedit voluptatem eligendi vero autem ipsa nisi perferendis dicta aliquid quaerat natus consequuntur repellat nam accusamus perspiciatis nostrum. Magnam officia quod dolor, aspernatur sunt animi eius laudantium consequatur odit ratione",
-  //     isVerified: true,
-  //     timestamp: 30,
-  //     commentCount: 1,
-  //     retweetCount: 3,
-  //     comments: [
-  //       {
-  //         img: user,
-  //         fullname: "Clever Qazi",
-  //         username: "@cleverprogrammer",
-  //         comment: "I thought this was a good work",
-  //         isVerified: true,
-  //       },
-  //       {
-  //         img: anoda,
-  //         fullname: "Khalid Mustapha",
-  //         username: "@crazyprogrammer",
-  //         comment: "Leemaooooo goan sitdan",
-  //         isVerified: true,
-  //       },
-  //       {
-  //         fullname: "Somone Loop",
-  //         username: "@tester",
-  //         comment: "Wow",
-  //         isVerified: false,
-  //       },
-  //     ],
-  //     like: 8,
-  //   },
-  //   {
-  //     img: anoda,
-  //     fullname: "Khalid Mustapha",
-  //     username: "@crazyprogrammer",
-  //     post: "Lorem ipsum dolor sit amet consectetur adipisicing elit repudiandae impedit voluptatem eligendi vero autem ipsa nisi perferendis dicta aliquid quaerat natus consequuntur repellat nam accusamus perspiciatis nostrum. Magnam officia quod dolor, aspernatur sunt animi eius laudantium consequatur odit ratione",
-  //     isVerified: true,
-  //     timestamp: 30,
-  //     commentCount: 30,
-  //     retweetCount: 7,
-  //     comments: [
-  //       {
-  //         fullname: "Somone Loop",
-  //         username: "@tester",
-  //         comment: "Wow",
-  //         isVerified: false,
-  //       },
-  //     ],
-  //     like: 5,
-  //   },
-  //   {
-  //     img: user,
-  //     fullname: "Clever Qazi",
-  //     username: "@cleverprogrammer",
-  //     post: "Lorem ipsum dolor sit amet consectetur adipisicing elit repudiandae impedit voluptatem eligendi vero autem ipsa nisi perferendis dicta aliquid quaerat natus consequuntur repellat nam accusamus perspiciatis nostrum. Magnam officia quod dolor, aspernatur sunt animi eius laudantium consequatur odit ratione",
-  //     isVerified: true,
-  //     timestamp: 30,
-  //     commentCount: 3,
-  //     retweetCount: 8,
-  //     comments: [
-  //       {
-  //         img: user,
-  //         fullname: "Clever Qazi",
-  //         username: "@cleverprogrammer",
-  //         comment: "I thought this was a good work",
-  //         isVerified: true,
-  //       },
-  //       {
-  //         img: anoda,
-  //         fullname: "Khalid Mustapha",
-  //         username: "@crazyprogrammer",
-  //         comment: "Leemaooooo goan sitdan",
-  //         isVerified: true,
-  //       },
-  //       {
-  //         fullname: "Somone Loop",
-  //         username: "@tester",
-  //         comment: "Wow",
-  //         isVerified: false,
-  //       },
-  //     ],
-  //     like: 1,
-  //   },
-  // ];
+import Login from "../authentication/Login";
 
-  // const { data, isLoading, error } = useFetch(
-  //   "http://127.0.0.1:8000/api/feeds/"
-  // );
-  const User = {
-    fullname: "Berthjone Redely",
-    username: "developeredward",
-    email: "edwardberth1@gmail.com",
-    profilePicture: user,
+export class main extends Component {
+  state = {
+    data: [],
   };
 
-  const { data, isLoading, error } = useFetch(
-    "http://127.0.0.1:8000/api/feeds/"
-  );
+  // const { data, isLoading, error } = useFetch(
+  //   this.state.token,
+  //   "http://127.0.0.1:8000/api/feeds/"
+  // );
 
-  return (
-    <main>
-      <Nav />
-      <div className="body-container">
-        <LeftNav />
-        {data ? (
-          <Feeds User={User} feeds={data} />
-        ) : (
-          <h1
-            style={{
-              width: "100vw",
-              height: "100vh",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
-            NOTHIGN
-          </h1>
-        )}
+  UNSAFE_componentWillReceiveProps(newProps) {
+    if (newProps.token) {
+      // axios.defaults.headers = {
+      //   "Content-Type": "application/json",
+      //   Authorization: newProps.token,
+      // };
+      axios
+        .get("http://127.0.0.1:8000/api/feeds/")
+        .then((res) => {
+          this.setState({
+            data: res.data,
+          });
+          console.log(this.state.data);
+          // setData(res.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  }
+  render() {
+    return (
+      <Router>
+        <main>
+          <Nav />
+          <div className="body-container">
+            <Switch>
+              <Route exact path="/">
+                <LeftNav />
+                {this.state.data ? (
+                  <Feeds User={this.User} feeds={this.state.data} />
+                ) : (
+                  <h1
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}
+                  >
+                    NOTHIGN
+                  </h1>
+                )}
 
-        <RightNav />
-        <RecentMsg />
-      </div>
-    </main>
-  );
+                <RightNav />
+                <RecentMsg />
+              </Route>
+              <Route exact path="/login/">
+                <LeftNav />
+                {this.state.data ? (
+                  <Feeds User={this.User} feeds={this.state.data} />
+                ) : (
+                  <h1
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}
+                  >
+                    NOTHIGN
+                  </h1>
+                )}
+                <RightNav />
+                <RecentMsg />
+                <Login />
+              </Route>
+            </Switch>
+          </div>
+        </main>
+      </Router>
+    );
+  }
+}
+
+const mapStateToProps = (state) => {
+  return {
+    token: state.token,
+    // state: state.error,
+  };
 };
 
-export default Main;
+export default connect(mapStateToProps)(main);

@@ -7,6 +7,7 @@
     gap: 30px;
     flex-flow: column;
     .post {
+      position: relative;
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
@@ -57,7 +58,6 @@
               }
             }
           }
-
           .profile-pic {
             width: 70px;
             height: 70px;
@@ -69,10 +69,39 @@
             }
           }
         }
-        .timestamp {
-          span {
-            color: rgb(182, 181, 181);
-            font-size: 15px;
+        .timestamp-options {
+          .options {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            // position: absolute;
+            // top: 50px;
+            // right: 70px;
+            .menu {
+              display: flex;
+              justify-content: center;
+              gap: 3px;
+              align-self: center;
+              // flex-direction: column;
+              // height: 4vh;
+              cursor: pointer;
+              width: 30px;
+              .menu-bar {
+                display: block;
+                width: 5px;
+                height: 5px;
+                border-radius: 100%;
+                background: #ffffff;
+              }
+            }
+          }
+          .timestamp {
+            position: relative;
+            top: 10px;
+            span {
+              color: rgb(182, 181, 181);
+              font-size: 15px;
+            }
           }
         }
       }
@@ -260,6 +289,8 @@
                 }
               }
               .comment-text {
+                word-break: break-all;
+                max-width: 400px;
                 .comment-content-text {
                   font-size: 14px;
                 }

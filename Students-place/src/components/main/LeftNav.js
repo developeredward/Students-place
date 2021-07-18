@@ -16,8 +16,12 @@ const LeftNav = () => {
       <div className="user-interest-details">
         <ul className="interests">
           <button>
+            <FontAwesomeIcon icon={solid.faHome} /> Home
+          </button>
+          <button>
             <FontAwesomeIcon icon={solid.faFire} /> Trending 24hrs
           </button>
+
           <button>
             <FontAwesomeIcon icon={regular.faHeart} /> Favourites
           </button>
@@ -30,32 +34,76 @@ const LeftNav = () => {
         <div className="navigation">
           <ul>
             <button>
-              {" "}
-              <img src={opportunity} alt="" /> <span>Opportunities</span>
+              <span>
+                <FontAwesomeIcon
+                  className="left-nav-icon"
+                  size="lg"
+                  icon={solid.faUniversity}
+                />{" "}
+                Library
+              </span>
+            </button>
+
+            <button>
+              <span>
+                <FontAwesomeIcon
+                  className="left-nav-icon"
+                  size="lg"
+                  icon={regular.faLightbulb}
+                />{" "}
+                Opportunities
+              </span>
             </button>
             <button>
-              {" "}
-              <img src={technology} alt="" /> <span>Technology</span>
+              <span>
+                <FontAwesomeIcon
+                  className="left-nav-icon"
+                  size="lg"
+                  icon={solid.faNetworkWired}
+                />{" "}
+                Technology
+              </span>
             </button>
             <button>
-              {" "}
-              <img src={library} alt="" /> <span>Students Library</span>
+              <span>
+                <FontAwesomeIcon
+                  className="left-nav-icon"
+                  size="lg"
+                  icon={solid.faIcons}
+                />{" "}
+                Entertainment
+              </span>
             </button>
             <button>
-              {" "}
-              <img src={entertainment} alt="" /> <span>Entertainment</span>
+              <span>
+                <FontAwesomeIcon
+                  className="left-nav-icon"
+                  size="lg"
+                  icon={solid.faBlog}
+                />{" "}
+                Blog
+              </span>
             </button>
             <button>
-              {" "}
-              <img src={blog} alt="" /> <span>Blog</span>
+              <span>
+                <FontAwesomeIcon
+                  className="left-nav-icon"
+                  size="lg"
+                  icon={solid.faPhoneAlt}
+                />{" "}
+                Contact
+              </span>
             </button>
             <button>
-              {" "}
-              <img src={contact} alt="" /> <span>Contact</span>
-            </button>
-            <button>
-              {" "}
-              <img src={faq} alt="" /> <span>FAQ</span>
+              <span>
+                {" "}
+                <FontAwesomeIcon
+                  className="left-nav-icon"
+                  size="lg"
+                  icon={regular.faQuestionCircle}
+                />{" "}
+                FAQ
+              </span>
             </button>
           </ul>
         </div>

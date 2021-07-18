@@ -72,12 +72,12 @@ html {
       -ms-flex-align: center;
           align-items: center;
   width: 100%;
-  min-height: 10vh;
+  height: 10vh;
   z-index: 100;
   background: #313131;
   margin-bottom: 20px;
-  -webkit-box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.281);
-          box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.281);
+  -webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.158);
+          box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.158);
 }
 
 .header nav {
@@ -113,13 +113,14 @@ html {
           flex-direction: column;
   height: 5vh;
   cursor: pointer;
-  width: 30px;
+  width: 5px;
 }
 
 .header nav .left-nav-controller .menu .menu-bar {
   display: block;
   width: 100%;
-  height: 2px;
+  height: 5px;
+  border-radius: 100%;
   background: #ffffff;
 }
 
@@ -156,7 +157,125 @@ html {
           flex: 0;
 }
 
-.header nav .authentication-links .auth-user .login .login-btn {
+.header nav .authentication-links .auth-user .auth-description .auth-user-credentials-container {
+  position: relative;
+}
+
+.header nav .authentication-links .auth-user .auth-description .auth-user-credentials-container .user-profile-pic {
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+}
+
+.header nav .authentication-links .auth-user .auth-description .auth-user-credentials-container .user-profile-pic .profile-img {
+  width: 100%;
+  height: 100%;
+  border: 1px solid #b66cff;
+  border-radius: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.header nav .authentication-links .auth-user .auth-description .auth-user-credentials-container .auth-user-nav-actions {
+  position: absolute;
+  left: -250px;
+  background: -webkit-gradient(linear, left top, right bottom, from(rgba(255, 255, 255, 0.336)), to(rgba(255, 255, 255, 0.062)));
+  background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.336), rgba(255, 255, 255, 0.062));
+  -webkit-backdrop-filter: blur(2rem);
+          backdrop-filter: blur(2rem);
+  height: 30vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 300px;
+}
+
+.header nav .authentication-links .auth-user .auth-description .auth-user-credentials-container .auth-user-nav-actions .profile-img {
+  width: 80px;
+  height: 80px;
+}
+
+.header nav .authentication-links .auth-user .auth-description .auth-user-credentials-container .auth-user-nav-actions .profile-img .img {
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.header nav .authentication-links .auth-user .auth-description .auth-user-credentials-container .auth-user-nav-actions .auth-user-names {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.header nav .authentication-links .auth-user .auth-description .auth-user-credentials-container .auth-user-nav-actions .actions {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  border-top: 1px solid white;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 10vh;
+}
+
+.header nav .authentication-links .auth-user .auth-description .auth-user-credentials-container .auth-user-nav-actions .actions .action {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-align: center;
+}
+
+.header nav .authentication-links .auth-user .auth-description .auth-user-credentials-container .auth-user-nav-actions .actions .action .action-icon {
+  background: blue;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 100%;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+}
+
+.header nav .authentication-links .auth-user .auth-description .login-btn {
+  cursor: pointer;
   background: linear-gradient(40deg, #ae6efe 21%, #b66cff 55%, #c869ff 77%);
   border: none;
   width: 80px;
@@ -187,7 +306,7 @@ html {
       -ms-flex-direction: column;
           flex-direction: column;
   width: 100%;
-  min-height: 50vh;
+  height: 90vh;
 }
 
 .left-nav-links ul {
@@ -211,8 +330,9 @@ html {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  gap: 5px;
   width: 80%;
-  min-height: 14vh;
+  height: 20vh;
   padding-bottom: 50px;
 }
 
@@ -239,7 +359,7 @@ html {
       -ms-flex-direction: column;
           flex-direction: column;
   width: 80%;
-  min-height: 30vh;
+  height: 80vh;
 }
 
 .left-nav-links .blog-navigations .title {
@@ -260,7 +380,7 @@ html {
       -ms-flex-direction: column;
           flex-direction: column;
   min-width: 80%;
-  min-height: 65vh;
+  height: 50vh;
 }
 
 .left-nav-links .blog-navigations .navigation ul button {
@@ -502,6 +622,7 @@ html {
 }
 
 .feeds-container .feed .post {
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -616,7 +737,46 @@ html {
      object-fit: cover;
 }
 
-.feeds-container .feed .post .post-user .timestamp span {
+.feeds-container .feed .post .post-user .timestamp-options .options {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.feeds-container .feed .post .post-user .timestamp-options .options .menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 3px;
+  -ms-flex-item-align: center;
+      align-self: center;
+  cursor: pointer;
+  width: 30px;
+}
+
+.feeds-container .feed .post .post-user .timestamp-options .options .menu .menu-bar {
+  display: block;
+  width: 5px;
+  height: 5px;
+  border-radius: 100%;
+  background: #ffffff;
+}
+
+.feeds-container .feed .post .post-user .timestamp-options .timestamp {
+  position: relative;
+  top: 10px;
+}
+
+.feeds-container .feed .post .post-user .timestamp-options .timestamp span {
   color: #b6b5b5;
   font-size: 15px;
 }
@@ -941,6 +1101,11 @@ html {
 
 .feeds-container .feed .post .comments-section .comment .comment-contents-box .commentor-details .commentor-name .comment-fullname {
   font-size: 12px;
+}
+
+.feeds-container .feed .post .comments-section .comment .comment-contents-box .commentor-details .comment-text {
+  word-break: break-all;
+  max-width: 400px;
 }
 
 .feeds-container .feed .post .comments-section .comment .comment-contents-box .commentor-details .comment-text .comment-content-text {

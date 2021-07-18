@@ -9,16 +9,17 @@ class InlineComments(admin.TabularInline):
 
 class PostAdmin(admin.ModelAdmin):
     inlines = [InlineComments]
-    list_display = ("id", "title", "post_by",)
-    list_display_links = ("id", "title", "post_by",)
-    list_filter = ("title", "id")
-    search_fields = ("title", "id")
+    list_display = ("id", "post_by",)
+    list_display_links = ("id", "post_by",)
+    list_filter = ("id", "post_by")
+    search_fields = ("id", "post_by")
     fieldsets = (
         ("Post", {
             "fields": (
-                "title",
-                "overview",
-                "detail",
+                "content",
+                "image",
+                "video",
+                "document",
                 "post_by",
             )
         }),

@@ -1,6 +1,9 @@
 from django.contrib.auth import get_user_model
 from django.db import models
 from django.contrib.auth.models import User
+from tinymce.models import HTMLField
+
+
 
 User = get_user_model()
 
@@ -12,18 +15,19 @@ class PostView(models.Model):
         return self.user.username
 
 class Post(models.Model):
-    title = models.CharField(max_length=100)
-    overview = models.CharField(max_length=1000)
-    detail = models.TextField()
+    content = models.TextField(null=True, blank=True)
+    image = models.FileField(upload_to="uploads/images",null=True, blank=True)
+    document = models.FileField(upload_to="uploads/documents", null=True, blank=True) 
+    video = models.FileField(upload_to="uploads/videos", blank=True, null=True)
     timestamp = models.DateTimeField(auto_now_add=True)
     post_by = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.title
+        return str(self.id)
 
     @property
-    def get_comments(self):
-        return self.comments.all().order_by('-timestamp')
+    def get_recent_comments(self):
+        return self.comments.order_by('-timestamp')[:2]
 
 
 

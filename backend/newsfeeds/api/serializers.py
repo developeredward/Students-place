@@ -1,7 +1,11 @@
-from django.db.models import fields
+from django.db import models
+from django.db.models import fields, query
 from rest_framework import serializers
 from django.contrib.auth import get_user_model
 from django.contrib.auth.models import User
+from rest_framework.settings import reload_api_settings
+
+
 from newsfeeds.models import Post, Comment 
 
 User = get_user_model()
@@ -20,12 +24,39 @@ class CommentSerializer(serializers.ModelSerializer):
     timestamp = TimestampField()
     class Meta:
         model = Comment
-        fields = ('comment', 'user', 'timestamp')
+        fields = ('id', 'comment', 'user', 'timestamp')
+
 class PostSerializer(serializers.ModelSerializer):
     comments = CommentSerializer(many=True)
+    get_recent_comments = CommentSerializer(many=True)
     post_by = UserSerializer()
     timestamp = TimestampField()
     class Meta:
         model = Post
-        fields = ('title', 'overview', 'detail', 'comments', 'post_by', 'timestamp', 'id')
+        fields = ('id','content', 'image', 'video', 'document', 'get_recent_comments', 'comments', 'post_by', 'timestamp')
+    
+    # def get_comments(self, obj):
+    #     return CommentSerializer(obj.get_comments.all()[:1], many=True).data
+    
+
+
+
+class PostCreateSerializer(serializers.ModelSerializer):
+    post_by = serializers.PrimaryKeyRelatedField(many=False,  queryset=User.objects.all())
+    class Meta:
+        model = Post
+        fields = ('content','post_by')
+
+
+class CommentCreateSerializer(serializers.ModelSerializer):
+    post = serializers.PrimaryKeyRelatedField(many=False, queryset=Post.objects.all())
+    user = serializers.PrimaryKeyRelatedField(many=False, queryset=User.objects.all())
+    # post = serializers.SerializerMethodField(read_only=True)
+
+    class Meta:
+        model = Comment
+        fields = ('comment','post', 'user')
+    
+    # def get_post(self, obj):
+    #     return PostSerializer(Post.objects.all(), many=True).data
     
