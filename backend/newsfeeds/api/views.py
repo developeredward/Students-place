@@ -6,6 +6,7 @@ from .serializers import PostSerializer, UserSerializer, PostCreateSerializer, C
 class PostListView(ListAPIView):
     queryset = Post.objects.order_by('-timestamp')
     serializer_class = PostSerializer
+
 class PostCreateView(CreateAPIView):
     queryset = Post.objects.all()
     serializer_class = PostCreateSerializer
@@ -21,3 +22,6 @@ class PostDetailView(RetrieveAPIView):
 class CommentCreateView(CreateAPIView):
     queryset = Comment.objects.all()
     serializer_class = CommentCreateSerializer
+
+    def perform_create(self, serializer):
+        serializer.save()

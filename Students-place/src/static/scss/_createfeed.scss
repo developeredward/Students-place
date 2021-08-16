@@ -1,0 +1,111 @@
+.post-create-container {
+  background: #2e2d2d;
+  background: linear-gradient(
+    to right bottom,
+    rgba(122, 121, 121, 0.281),
+    rgba(107, 106, 106, 0.308)
+  );
+  backdrop-filter: blur(2rem);
+  border-radius: 40px;
+  button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    .icon {
+      font-size: 20px;
+    }
+    .clip {
+      color: #a0a0a0;
+    }
+    .emoji {
+      color: #fae636;
+    }
+  }
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  align-items: center;
+  width: 680px;
+  height: 30vh;
+  .profile-img {
+    width: 80px;
+    height: 80px;
+    .img {
+      width: 100%;
+      height: 100%;
+      border-radius: 100%;
+      object-fit: cover;
+      object-position: top;
+    }
+  }
+  form {
+    display: flex;
+    justify-content: center;
+    gap: 20%;
+    align-items: flex-start;
+    flex-direction: column;
+    height: 100%;
+    width: 90%;
+    .post-create-input {
+      background: #363636;
+      border-top-left-radius: 50px;
+      border-bottom-left-radius: 50px;
+      border-top-right-radius: 30px;
+      border-bottom-right-radius: 30px;
+      display: flex;
+      column-gap: 30px;
+      justify-content: flex-start;
+      align-items: center;
+      width: 100%;
+      .create {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 80%;
+        textarea {
+          resize: none;
+          column-count: 80;
+          padding-top: 30px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          background: #363636;
+          border: none;
+          outline: none;
+          color: #f0f0f0;
+          width: 90%;
+          height: 80px;
+        }
+      }
+    }
+    .post-create-alt {
+      display: flex;
+      justify-content: space-evenly;
+      column-gap: 150px;
+      align-items: center;
+      width: 100%;
+      .alt-btns {
+        display: flex;
+        justify-content: space-evenly;
+        column-gap: 20px;
+        align-items: center;
+      }
+      .submit-post {
+        background: linear-gradient(
+          40deg,
+          #ae6efe 10%,
+          #b66cff 30%,
+          #c869ff 77%
+        );
+        width: 100px;
+        height: 40px;
+        border-radius: 20px;
+
+        &:hover {
+          background: #c869ff;
+        }
+      }
+    }
+  }
+}

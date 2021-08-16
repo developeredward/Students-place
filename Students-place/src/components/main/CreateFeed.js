@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import * as solid from "@fortawesome/free-solid-svg-icons";
+import * as regular from "@fortawesome/free-regular-svg-icons";
 
-const Post = () => {
+const CreatePost = ({ token, reload, profilePicture }) => {
   const [value, setValue] = useState("");
   const handleChange = (e) => {
     const vl = e.target.value;
     setValue(vl);
-    // console.log(value);
   };
   const handlesubmit = (e) => {
     e.preventDefault();
@@ -22,29 +25,46 @@ const Post = () => {
         { headers: headers }
       )
       .then((res) => {
-        console.log(res);
+        setValue("");
+        reload();
       });
-    console.log(token);
-    // console.log()
-    console.log(value);
   };
 
   return (
     <div className="post-create-container">
       <form>
         <div className="post-create-input">
+          <div className="profile-img">
+            <img src={profilePicture} className="img" alt="" />
+          </div>
           <div className="create">
-            <input type="text" value={value} onChange={handleChange} />
-            <button type="submit" onClick={handlesubmit}>
-              submit
+            <textarea
+              placeholder="What is on your mind?..."
+              type="text"
+              value={value}
+              onChange={handleChange}
+            />
+            <button>
+              <FontAwesomeIcon className="emoji icon" icon={solid.faSmile} />
             </button>
           </div>
-          <input type="text" />
         </div>
-        <div className="post-create-alt"></div>
+        <div className="post-create-alt">
+          <div className="alt-btns">
+            <button>
+              <FontAwesomeIcon className="clip icon" icon={solid.faPaperclip} />
+            </button>
+            <button>
+              <FontAwesomeIcon className="clip icon" icon={solid.faCamera} />
+            </button>
+          </div>
+          <button className="submit-post" type="submit" onClick={handlesubmit}>
+            Post
+          </button>
+        </div>
       </form>
     </div>
   );
 };
 
-export default Post;
+export default CreatePost;

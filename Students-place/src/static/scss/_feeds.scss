@@ -1,4 +1,5 @@
 .feeds-container {
+  @import "./createfeed";
   .feed {
     display: flex;
     justify-content: space-around;
@@ -51,6 +52,10 @@
                 justify-content: space-between;
                 align-items: center;
                 text-transform: capitalize;
+                color: #e6e6e6;
+                &:hover {
+                  color: #f8f6f6;
+                }
               }
               .username {
                 text-transform: lowercase;
@@ -174,7 +179,7 @@
               align-items: center;
               width: 100%;
               flex: 1;
-              #comment-input {
+              .comment-input-field {
                 resize: none;
                 column-count: 80;
                 color: #ffffff;

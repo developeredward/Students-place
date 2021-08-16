@@ -18,7 +18,7 @@ class TimestampField(serializers.Field):
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ('username','first_name', "get_full_name", "profile_picture", 'middle_name', 'last_name')
+        fields = ('id','username','first_name', "get_full_name", "profile_picture", 'middle_name', 'last_name')
         
 class CommentSerializer(serializers.ModelSerializer):
     user = UserSerializer()
@@ -57,12 +57,20 @@ class PostCreateSerializer(serializers.ModelSerializer):
 
 class CommentCreateSerializer(serializers.ModelSerializer):
     post = serializers.PrimaryKeyRelatedField(many=False, queryset=Post.objects.all())
-    user = serializers.PrimaryKeyRelatedField(many=False, queryset=User.objects.all())
+    user = User()
     # post = serializers.SerializerMethodField(read_only=True)
 
     class Meta:
         model = Comment
         fields = ('comment','post', 'user')
+        read_only_fields = ['user']
+    
+
+    def validate(self, attrs):
+        attrs['user'] = self.context['request'].user
+        return attrs
+    
+    
     
     # def get_post(self, obj):
     #     return PostSerializer(Post.objects.all(), many=True).data

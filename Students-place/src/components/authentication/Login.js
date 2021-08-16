@@ -7,7 +7,7 @@ import * as solid from "@fortawesome/free-solid-svg-icons";
 import * as regular from "@fortawesome/free-regular-svg-icons"; // import useForm from "./useForm";
 import validate from "./validateLogin";
 import "../../static/css/authentication.css";
-
+import Loading from "../Loading";
 const Login = (props) => {
   const initialState = {
     username: "",
@@ -34,12 +34,12 @@ const Login = (props) => {
     if (!values.username.trim()) {
       usernameError = "Username is Required";
     }
+    if (!values.password) {
+      passwordError = "Password is Required";
+    }
     if (usernameError) {
       setErrors({ usernameError });
       return false;
-    }
-    if (!values.password) {
-      passwordError = "Password is Required";
     }
     if (passwordError) {
       setErrors({ passwordError });
@@ -62,39 +62,52 @@ const Login = (props) => {
   return (
     <div className="login-fullscreen-container">
       <div className="login-container">
-        <button className="cancel" onClick={()=>{history.go(-1)}}>x</button>
+        <button
+          className="cancel"
+          onClick={() => {
+            history.go(-1);
+          }}
+        >
+          x
+        </button>
         <div className="login-content">
-          <div className="text-heading">
-            <h2>Sign In</h2>
-          </div>
-          <form onSubmit={handleSubmit}>
-            <input
-              type="text"
-              name="username"
-              value={values.username}
-              placeholder="Username"
-              onChange={handleChange}
-            />
-            {errors.usernameError && <span>{errors.usernameError}</span>}
-            <input
-              type="password"
-              name="password"
-              id=""
-              value={values.password}
-              placeholder="Password"
-              onChange={handleChange}
-            />
-            {errors.passwordError && <span>{errors.passwordError}</span>}
-            <div className="login-signup-btn">
-              <button type="submit" className="login-btn">
-                Login
-              </button>
-              <p>or</p>
-              <Link to="/signup/" className="signup">
-                Signup
-              </Link>
-            </div>
-          </form>
+          {props.loading ? (
+            <Loading text="signing in..." />
+          ) : (
+            <>
+              <div className="text-heading">
+                <h2>Sign In</h2>
+              </div>
+              <form onSubmit={handleSubmit}>
+                <input
+                  type="text"
+                  name="username"
+                  value={values.username}
+                  placeholder="Username"
+                  onChange={handleChange}
+                />
+                {errors.usernameError && <span>{errors.usernameError}</span>}
+                <input
+                  type="password"
+                  name="password"
+                  id=""
+                  value={values.password}
+                  placeholder="Password"
+                  onChange={handleChange}
+                />
+                {errors.passwordError && <span>{errors.passwordError}</span>}
+                <div className="login-signup-btn">
+                  <button type="submit" className="login-btn">
+                    Login
+                  </button>
+                  <p>or</p>
+                  <Link to="/signup/" className="signup">
+                    Signup
+                  </Link>
+                </div>
+              </form>
+            </>
+          )}
         </div>
       </div>
     </div>

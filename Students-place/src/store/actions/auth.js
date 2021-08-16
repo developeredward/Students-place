@@ -111,7 +111,9 @@ export const authLogin = (username, password) => {
               localStorage.setItem("firstname", firstname);
               localStorage.setItem("middlename", middlename);
               localStorage.setItem("surname", surname);
-              localStorage.setItem("picture", picture);
+              if (picture !== null) {
+                localStorage.setItem("picture", picture);
+              }
               localStorage.setItem("verified", verified);
               localStorage.setItem("admin", admin);
               localStorage.setItem("staff", staff);
@@ -139,20 +141,22 @@ export const authLogin = (username, password) => {
 
 export const authSignup = (
   username,
-  first_name,
-  last_name,
+  email,
   password1,
-  password2
+  password2,
+  first_name,
+  last_name
 ) => {
   return (dispatch) => {
     dispatch(authStart());
     axios
       .post("http://127.0.0.1:8000/rest-auth/registration/", {
         username: username,
-        first_name: first_name,
-        last_name: last_name,
+        email: email,
         password1: password1,
         password2: password2,
+        first_name: first_name,
+        last_name: last_name,
       })
       .then((res) => {
         const token = res.data.key;
@@ -161,6 +165,52 @@ export const authSignup = (
         localStorage.setItem("expirationDate", expirationDate);
         dispatch(authSuccess(token));
         dispatch(handleTimeout(3600));
+        dispatch(() => {
+          axios
+            .get("http://127.0.0.1:8000/rest-auth/user/", {
+              headers: {
+                "Content-Type": "application/json",
+                Authorization: `Token ${token}`,
+              },
+            })
+            .then((res) => {
+              const username = res.data.username;
+              const fullname = res.data.get_full_name;
+              const firstname = res.data.first_name;
+              const middlename = res.data.middle_name;
+              const surname = res.data.last_name;
+              const picture = res.data.profile_picture;
+              const admin = res.data.admin;
+              const staff = res.data.staff;
+              const verified = res.data.verified;
+
+              // localStorage.setItem("expirationDate", expirationDate);
+              localStorage.setItem("username", username);
+              localStorage.setItem("fullname", fullname);
+              localStorage.setItem("firstname", firstname);
+              localStorage.setItem("middlename", middlename);
+              localStorage.setItem("surname", surname);
+              if (picture !== null) {
+                localStorage.setItem("picture", picture);
+              }
+              localStorage.setItem("verified", verified);
+              localStorage.setItem("admin", admin);
+              localStorage.setItem("staff", staff);
+              dispatch(
+                authGetUserCredentials(
+                  username,
+                  fullname,
+                  firstname,
+                  middlename,
+                  surname,
+                  picture,
+                  admin,
+                  staff,
+                  verified
+                )
+              );
+            });
+        });
       })
       .catch((err) => {
         dispatch(authFail(err));

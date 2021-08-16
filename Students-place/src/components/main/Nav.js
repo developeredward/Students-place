@@ -47,12 +47,30 @@ const Nav = (props) => {
                 // </button>
                 <div className="auth-user-credentials-container">
                   <div className="user-profile-pic">
-                    <img src={props.userImage} className="profile-img" alt="" />
+                    {props.userImage ? (
+                      <img
+                        src={props.userImage}
+                        className="profile-img"
+                        alt=""
+                      />
+                    ) : (
+                      <FontAwesomeIcon
+                        className="profile-img"
+                        icon={solid.faUserCircle}
+                      />
+                    )}
                   </div>
                   <div className="auth-user-nav-actions">
                     <div className="linker"></div>
                     <div className="profile-img">
-                      <img src={props.userImage} alt="" className="img" />
+                      {props.userImage ? (
+                        <img src={props.userImage} className="img" alt="" />
+                      ) : (
+                        <FontAwesomeIcon
+                          className="img"
+                          icon={solid.faUserCircle}
+                        />
+                      )}
                     </div>
                     <div className="auth-user-names">
                       <h4>{props.fullname}</h4>

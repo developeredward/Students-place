@@ -20,7 +20,6 @@ class UserDetailSerializer(serializers.ModelSerializer):
 class UserRegistrationSerializer(RegisterSerializer):
     first_name = serializers.CharField(required=True)
     last_name = serializers.CharField(required=True)
-    middle_name = serializers.CharField(required=False)
     email = serializers.EmailField(required=False)
    
     def get_cleaned_data(self):
@@ -28,7 +27,6 @@ class UserRegistrationSerializer(RegisterSerializer):
         return {
             'email': self.validated_data.get('email', ''),
             'first_name': self.validated_data.get('first_name', ''),
-            'middle_name': self.validated_data.get('middle_name', ''),
             'last_name': self.validated_data.get('last_name', ''),
             'username': self.validated_data.get('username', ''),
             'password1': self.validated_data.get('password1', ''),
