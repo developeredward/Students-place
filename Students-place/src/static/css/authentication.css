@@ -1,16 +1,14 @@
 * {
   padding: 0;
   margin: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .login-fullscreen-container {
   position: fixed;
   top: 10vh;
   background: rgba(0, 0, 0, 0.5);
-  -webkit-backdrop-filter: blur(5px);
-          backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
   height: 100%;
   width: 100%;
   z-index: 300;
@@ -20,19 +18,11 @@
   position: relative;
   top: 50%;
   left: 50%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
   gap: 10px;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  background: -webkit-gradient(linear, left top, right bottom, from(rgba(255, 255, 255, 0.151)), to(rgba(255, 255, 255, 0.062)));
+  transform: translate(-50%, -50%);
   background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.151), rgba(255, 255, 255, 0.062));
   border-radius: 10px;
   width: 30%;
@@ -52,36 +42,19 @@
 }
 
 .login-fullscreen-container .login-container .login-content {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
   height: 100%;
   gap: 30px;
 }
 
 .login-fullscreen-container .login-container .login-content form {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .login-fullscreen-container .login-container .login-content form input {
@@ -91,7 +64,6 @@
   border-bottom: 1px solid #c869ff;
   color: #ffffff;
   outline: none;
-  -webkit-transition: 0.2s linear;
   transition: 0.2s linear;
 }
 
@@ -109,19 +81,10 @@
 .login-fullscreen-container .login-container .login-content form .login-signup-btn {
   position: relative;
   top: 30px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
   gap: 8px;
 }
 

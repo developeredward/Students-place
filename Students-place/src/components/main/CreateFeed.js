@@ -6,12 +6,15 @@ import * as regular from "@fortawesome/free-regular-svg-icons";
 
 const CreatePost = ({ token, reload, profilePicture }) => {
   const [value, setValue] = useState("");
+
   const handleChange = (e) => {
     const vl = e.target.value;
     setValue(vl);
   };
-  const handlesubmit = (e) => {
+
+  const handleSubmit = (e) => {
     e.preventDefault();
+    setValue("");
     const headers = {
       "Content-Type": "application/json",
       Authorization: `Token ${token}`,
@@ -29,6 +32,12 @@ const CreatePost = ({ token, reload, profilePicture }) => {
         reload();
       });
   };
+  const handleEmoji = (e) => {
+    e.preventDefault();
+    const emojiContainer = document.querySelector(".all-emoji");
+
+    emojiContainer.classList.toggle("show-emojis");
+  };
 
   return (
     <div className="post-create-container">
@@ -44,9 +53,75 @@ const CreatePost = ({ token, reload, profilePicture }) => {
               value={value}
               onChange={handleChange}
             />
-            <button>
-              <FontAwesomeIcon className="emoji icon" icon={solid.faSmile} />
-            </button>
+            <div className="emojis-btn">
+              <button>
+                <FontAwesomeIcon
+                  className="parent-emoji emoji icon"
+                  icon={solid.faSmile}
+                  // onClick={handleEmoji}
+                  onMouseOverCapture={handleEmoji}
+                />
+              </button>
+              <div className="all-emoji">
+                <div className="i-emoji">
+                  <FontAwesomeIcon
+                    className="emoji icon"
+                    icon={solid.faSmile}
+                  />
+                </div>
+                <div className="i-emoji">
+                  <FontAwesomeIcon
+                    className="emoji icon"
+                    icon={solid.faSadCry}
+                  />
+                </div>
+                <div className="i-emoji">
+                  <FontAwesomeIcon
+                    className="emoji icon"
+                    icon={solid.faSadTear}
+                  />
+                </div>
+                <div className="i-emoji">
+                  <FontAwesomeIcon
+                    className="emoji icon"
+                    icon={solid.faSmileWink}
+                  />
+                </div>
+                <div className="i-emoji">
+                  <FontAwesomeIcon className="emoji icon" icon={solid.faStar} />
+                </div>
+                <div className="i-emoji">
+                  <FontAwesomeIcon
+                    className="emoji icon thumbs"
+                    icon={solid.faThumbsUp}
+                  />
+                </div>
+                <div className="i-emoji">
+                  <FontAwesomeIcon
+                    className="emoji icon thumbs"
+                    icon={solid.faThumbsDown}
+                  />
+                </div>
+                <div className="i-emoji">
+                  <FontAwesomeIcon
+                    className="emoji icon pin"
+                    icon={solid.faThumbtack}
+                  />
+                </div>
+                <div className="i-emoji">
+                  <FontAwesomeIcon
+                    className="emoji icon fire"
+                    icon={solid.faFire}
+                  />
+                </div>
+                <div className="i-emoji">
+                  <FontAwesomeIcon
+                    className="emoji icon angry"
+                    icon={solid.faAngry}
+                  />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <div className="post-create-alt">
@@ -58,7 +133,7 @@ const CreatePost = ({ token, reload, profilePicture }) => {
               <FontAwesomeIcon className="clip icon" icon={solid.faCamera} />
             </button>
           </div>
-          <button className="submit-post" type="submit" onClick={handlesubmit}>
+          <button className="submit-post" type="submit" onClick={handleSubmit}>
             Post
           </button>
         </div>

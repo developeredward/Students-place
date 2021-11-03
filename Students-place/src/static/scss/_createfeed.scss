@@ -77,6 +77,49 @@
           width: 90%;
           height: 80px;
         }
+        .emojis-btn {
+          position: relative;
+
+          .all-emoji {
+            position: absolute;
+            top: 25px;
+            opacity: 0;
+            left: -100px;
+            background: #646464;
+            width: 400px;
+            min-height: 40px;
+            padding: 10px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            .i-emoji {
+              .emoji {
+                font-size: 25px;
+                color: #fae636;
+                cursor: pointer;
+                &:hover {
+                  background: #363636;
+                }
+              }
+              .thumbs {
+                color: #8684ec;
+              }
+              .fire {
+                color: #fa5102;
+              }
+              .pin {
+                color: #eb8383;
+              }
+              .angry {
+                color: #ff8640;
+              }
+            }
+          }
+          .show-emojis {
+            opacity: 1;
+          }
+        }
       }
     }
     .post-create-alt {
